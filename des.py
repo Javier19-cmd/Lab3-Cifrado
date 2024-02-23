@@ -1,4 +1,4 @@
-from Crypto.Cipher import DES, DES3
+from Crypto.Cipher import DES, DES3, AES
 from Crypto.Util.Padding import pad, unpad
 from Crypto.Random import get_random_bytes
 
@@ -37,3 +37,22 @@ print("Mensaje cifrado con DES3:", mensaje_cifrado)
 mensaje_descifrado = unpad(cifrado.decrypt(mensaje_cifrado), DES3.block_size)
 
 print("Mensaje descifrado con DES3:", mensaje_descifrado)
+
+# Generación de la clave
+clave = get_random_bytes(32) # AES necesita una clave de 16, 24 o 32 bytes
+
+# Creación del cifrado AES
+cifrado = AES.new(clave, AES.MODE_ECB)
+
+# Mensaje que se va a cifrar
+mensaje = b'Hola Mundo!'
+
+# Cifrado del mensaje
+mensaje_cifrado = cifrado.encrypt(pad(mensaje, AES.block_size))
+
+print("Mensaje cifrado con AES:", mensaje_cifrado)
+
+# Descifrado del mensaje
+mensaje_descifrado = unpad(cifrado.decrypt(mensaje_cifrado), AES.block_size)
+
+print("Mensaje descifrado con AES:", mensaje_descifrado)
