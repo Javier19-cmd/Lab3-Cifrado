@@ -26,10 +26,10 @@ encrypted_cbc_data = encrypt_cbc(data, key)
 
 # Resultados
 with Image.frombytes('RGB', im.size, encrypted_ecb_data) as im_ecb:
-    im_ecb.save('imagen_ecb.jpg')
+    im_ecb.save('imagen_ecb1.jpg')
 
 with Image.frombytes('RGB', im.size, encrypted_cbc_data) as im_cbc:
-    im_cbc.save('imagen_cbc.jpg')
+    im_cbc.save('imagen_cbc1.jpg')
 
 # Ejemplo con formato webp
 with Image.open('Logo-UVG.webp') as im:
@@ -40,10 +40,10 @@ encrypted_cbc_data = encrypt_cbc(data1, key)
 
 # Resultados
 with Image.frombytes('RGB', im.size, encrypted_ecb_data) as im_ecb:
-    im_ecb.save('imagen_ecb.webp')
+    im_ecb.save('imagen_ecb2.webp')
 
 with Image.frombytes('RGB', im.size, encrypted_cbc_data) as im_cbc:
-    im_cbc.save('imagen_cbc.webp')
+    im_cbc.save('imagen_cbc2.webp')
 
 # Ejemplo con formato ppm
 with Image.open('tux.ppm') as im:
@@ -54,11 +54,11 @@ encrypted_cbc_data = encrypt_cbc(data1, key)
 
 # Resultados
 with Image.frombytes('RGB', im.size, encrypted_ecb_data) as im_ecb:
-    im_ecb.save('imagen_ecb.ppm')
+    im_ecb.save('imagen_ecb3.ppm')
 
 with Image.frombytes('RGB', im.size, encrypted_cbc_data) as im_cbc:
-    im_cbc.save('imagen_cbc.ppm')
+    im_cbc.save('imagen_cbc3.ppm')
 
 # Enseñando las imagenes de los resultados
-Image.open('imagen_ecb.ppm').show()
-Image.open('imagen_cbc.ppm').show()
+Image.open('imagen_ecb3.ppm').show()
+Image.open('imagen_cbc3.ppm').show()
